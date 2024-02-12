@@ -16,7 +16,7 @@ inputs:
   args:
     description: 'Arguments passed to `aspell`.'
     required: false
-    default: '--lang=en_GB --mode=tex'
+    default: '--lang=en_GB --mode=tex --add-tex-command="problemname p" --add-tex-command="illustration ppp"'
 runs:
   using: 'docker'
   image: 'Dockerfile'
