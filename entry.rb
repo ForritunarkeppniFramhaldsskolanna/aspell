@@ -11,6 +11,12 @@ files = ARGV[0].shellsplit.flat_map { |path| Dir.glob(path) }
 extra_words_files = ARGV[1].shellsplit.flat_map { |path| Dir.glob(path) }
 args = ARGV[2].shellsplit
 
+# args << '--mode=tex'
+args << '--add-tex-command="problemname P"'
+args << '--add-tex-command="illustration ppP"'
+args << '--add-tex-command="href pP"'
+
+
 puts ARGV
 if files.empty?
   puts "::warning ::No files provided for spellcheck"
@@ -62,7 +68,7 @@ def check_file(file, extra_words_files, args)
 
         loop do
           output = stdout.readline
-          
+
           next if output.start_with?('@(#)')
           break if output == "\n"
 
@@ -101,7 +107,7 @@ def check_file(file, extra_words_files, args)
               suggestions: suggestions,
             }
           end
-          
+
           assert_rest(output.rest)
         end
       end
