@@ -11,11 +11,9 @@ files = ARGV[0].shellsplit.flat_map { |path| Dir.glob(path) }
 extra_words_files = ARGV[1].shellsplit.flat_map { |path| Dir.glob(path) }
 args = ARGV[2].shellsplit
 
-# args << '--mode=tex'
-args << '--add-tex-command="problemname P"'
-args << '--add-tex-command="illustration ppP"'
-args << '--add-tex-command="href pP"'
-
+args << '--add-tex-command=problemname P'
+args << '--add-tex-command=href pP'
+args << '--add-tex-command=illustration ppP'
 
 puts ARGV
 if files.empty?
