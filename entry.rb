@@ -15,7 +15,7 @@ args << '--add-tex-command=problemname P'
 args << '--add-tex-command=href pP'
 args << '--add-tex-command=illustration ppP'
 
-puts ARGV
+puts args
 if files.empty?
   puts "::warning ::No files provided for spellcheck"
   exit 0
