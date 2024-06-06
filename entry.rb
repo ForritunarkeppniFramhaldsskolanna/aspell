@@ -73,7 +73,8 @@ def check_file(file, extra_words_files, args)
           output = StringScanner.new(output)
 
           if type = output.scan(/(&|#|\*|-)/)
-            if type == '*' or type == '-'
+            if type == '*' or type == '-' or type == '+'
+              output.skip(/[^\n]*/)
               output.skip(/\n/)
               next
             end
